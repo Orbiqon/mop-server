@@ -26,13 +26,13 @@ default: &default
 
 development:
   <<: *default
-  database: backend_template_development
+  database: mop_server_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: backend_template
+  #username: mop_server
 
   # The password associated with the postgres role (username).
   #password:
@@ -60,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: backend_template_test
+  database: mop_server_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -84,6 +84,6 @@ test:
 #
 production:
   <<: *default
-  database: backend_template_production
-  username: backend_template
-  password: <%= ENV['BACKEND_TEMPLATE_DATABASE_PASSWORD'] %>
+  database: mop_server_production
+  username: mop_server
+  password: <%= ENV['Mop_SERVER_DATABASE_PASSWORD'] %>

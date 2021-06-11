@@ -1,5 +1,5 @@
 {
-  "name": "backend-template",
+  "name": "mop-server",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
