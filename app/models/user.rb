@@ -13,6 +13,7 @@ class User < ApplicationRecord
   attr_accessor :confirm_url, :recover_url
 
   has_one :profile
+  has_many :subscriptions
 
   after_create :assign_default_role
 
