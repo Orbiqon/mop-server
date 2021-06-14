@@ -1,0 +1,2 @@
+class ArtworkPaper < ApplicationRecord
+end

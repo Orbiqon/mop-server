@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_14_136015) do
+ActiveRecord::Schema.define(version: 2021_06_14_143725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,72 @@ ActiveRecord::Schema.define(version: 2021_06_14_136015) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "artwork_frames", force: :cascade do |t|
+    t.bigint "artwork_id"
+    t.bigint "frame_id"
+    t.float "base_price", default: 0.0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["artwork_id"], name: "index_artwork_frames_on_artwork_id"
+    t.index ["frame_id"], name: "index_artwork_frames_on_frame_id"
+  end
+
+  create_table "artwork_papers", force: :cascade do |t|
+    t.bigint "artwork_id"
+    t.bigint "paper_id"
+    t.float "base_price", default: 0.0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["artwork_id"], name: "index_artwork_papers_on_artwork_id"
+    t.index ["paper_id"], name: "index_artwork_papers_on_paper_id"
+  end
+
+  create_table "artwork_sizes", force: :cascade do |t|
+    t.bigint "artwork_id"
+    t.bigint "size_id"
+    t.float "base_price", default: 0.0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["artwork_id"], name: "index_artwork_sizes_on_artwork_id"
+    t.index ["size_id"], name: "index_artwork_sizes_on_size_id"
+  end
+
+  create_table "artworks", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.boolean "landspace", default: false
+    t.boolean "sellable", default: false
+    t.boolean "fullfil", default: false
+    t.boolean "live", default: false
+    t.boolean "exhibit", default: false
+    t.float "base_price", default: 0.0
+    t.integer "quantity", default: 0
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "artworks_categories", id: false, force: :cascade do |t|
+    t.bigint "artwork_id", null: false
+    t.bigint "category_id", null: false
+    t.index ["artwork_id", "category_id"], name: "index_artworks_categories_on_artwork_id_and_category_id"
+    t.index ["category_id", "artwork_id"], name: "index_artworks_categories_on_category_id_and_artwork_id"
+  end
+
+  create_table "artworks_rooms", id: false, force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.bigint "artwork_id", null: false
+    t.index ["artwork_id", "room_id"], name: "index_artworks_rooms_on_artwork_id_and_room_id"
+    t.index ["room_id", "artwork_id"], name: "index_artworks_rooms_on_room_id_and_artwork_id"
+  end
+
+  create_table "artworks_styles", id: false, force: :cascade do |t|
+    t.bigint "artwork_id", null: false
+    t.bigint "style_id", null: false
+    t.index ["artwork_id", "style_id"], name: "index_artworks_styles_on_artwork_id_and_style_id"
+    t.index ["style_id", "artwork_id"], name: "index_artworks_styles_on_style_id_and_artwork_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -105,6 +171,22 @@ ActiveRecord::Schema.define(version: 2021_06_14_136015) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "galleries", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.string "title"
+    t.string "welcome_video"
+    t.bigint "style_id"
+    t.bigint "frame_id"
+    t.string "link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "state"
+    t.index ["frame_id"], name: "index_galleries_on_frame_id"
+    t.index ["style_id"], name: "index_galleries_on_style_id"
+    t.index ["user_id"], name: "index_galleries_on_user_id"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
@@ -181,6 +263,14 @@ ActiveRecord::Schema.define(version: 2021_06_14_136015) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.bigint "gallery_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["gallery_id"], name: "index_rooms_on_gallery_id"
   end
 
   create_table "sizes", force: :cascade do |t|
@@ -1367,9 +1457,19 @@ ActiveRecord::Schema.define(version: 2021_06_14_136015) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "artwork_frames", "artworks"
+  add_foreign_key "artwork_frames", "frames"
+  add_foreign_key "artwork_papers", "artworks"
+  add_foreign_key "artwork_papers", "papers"
+  add_foreign_key "artwork_sizes", "artworks"
+  add_foreign_key "artwork_sizes", "sizes"
+  add_foreign_key "galleries", "frames"
+  add_foreign_key "galleries", "styles"
+  add_foreign_key "galleries", "users"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "profiles", "users"
+  add_foreign_key "rooms", "galleries"
   add_foreign_key "spree_promotion_code_batches", "spree_promotions", column: "promotion_id"
   add_foreign_key "spree_promotion_codes", "spree_promotion_code_batches", column: "promotion_code_batch_id"
   add_foreign_key "spree_tax_rate_tax_categories", "spree_tax_categories", column: "tax_category_id"

@@ -1,0 +1,2 @@
+class ArtworkSize < ApplicationRecord
+end
