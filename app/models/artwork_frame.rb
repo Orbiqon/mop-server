@@ -1,0 +1,2 @@
+class ArtworkFrame < ApplicationRecord
+end
