@@ -1,0 +1,2 @@
+module App::StylesHelper
+end

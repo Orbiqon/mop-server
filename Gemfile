@@ -5,14 +5,17 @@ ruby '3.0.1'
 
 gem 'aasm'
 gem 'active_link_to'
+gem 'bulk_insert'
 gem 'devise'
 gem 'doorkeeper', '~> 5.4.0'
 gem 'doorkeeper-grants_assertion', '~> 0.3.1'
 gem 'dry-matcher'
 gem 'dry-monads'
 gem 'haml'
+gem 'hotwire-rails'
 gem 'letter_opener'
 gem 'mailjet'
+gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'rexml', '~> 3.2', '>= 3.2.5'
 gem 'rolify'
 gem 'rspec-rails'
@@ -34,7 +37,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
