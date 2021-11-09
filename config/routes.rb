@@ -27,6 +27,13 @@ Rails.application.routes.draw do
     end
   end
 
+  # APP Routes
+  scope module: :app, path: 'app' do
+    resource :dashboard, only: [:show]
+    resources :styles
+    resources :colours
+  end
+
   # API Routes
   scope '/api' do
     scope '/v1' do
@@ -43,14 +50,9 @@ Rails.application.routes.draw do
         passwords: 'api/v1/users/passwords',
         confirmations: 'api/v1/users/confirmations'
       }, scoped_views: 'api/v1/users'
+      resources :styles
+      resources :colours
     end
-  end
-
-  # APP Routes
-  scope module: :app, path: 'app' do
-    resource :dashboard, only: [:show]
-    resources :styles
-    resources :colours
   end
 
   # root to: 'home#index'
