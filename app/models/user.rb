@@ -12,13 +12,18 @@ class User < ApplicationRecord
 
   attr_accessor :confirm_url, :recover_url
 
-  has_one :profile
-  has_many :subscriptions
+  enum user_type: {
+    customer: 0,
+    artist: 1
+  }
 
+  has_one :profile
+  has_many :artworks
+  has_many :subscriptions
   after_create :assign_default_role
 
   def assign_default_role
-    add_role(:customer) if roles.blank?
+    add_role(user_type) if roles.blank?
   end
 
   def assign_artist_role

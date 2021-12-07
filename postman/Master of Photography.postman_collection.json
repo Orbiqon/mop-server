@@ -1,0 +1,608 @@
+{
+	"info": {
+		"_postman_id": "5a964b59-47f3-4e15-bad3-d3f4c1b3b574",
+		"name": "Master of Photography",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Defination Data",
+			"item": [
+				{
+					"name": "Get Styles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}{{API_PATH}}/styles",
+							"host": [
+								"{{URL}}{{API_PATH}}"
+							],
+							"path": [
+								"styles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Colours",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}{{API_PATH}}/colours",
+							"host": [
+								"{{URL}}{{API_PATH}}"
+							],
+							"path": [
+								"colours"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Artwork",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "artwork[name]",
+									"value": "First Artwork",
+									"type": "text"
+								},
+								{
+									"key": "artwork[notes]",
+									"value": "This is first artwork.",
+									"type": "text"
+								},
+								{
+									"key": "artwork[edition_type]",
+									"value": "limited",
+									"description": "this has two types, 1- open, 2- Limited. The limited option have quatity bun in open case quatity is nil",
+									"type": "text"
+								},
+								{
+									"key": "artwork[edition_quantity]",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "artwork[sellable]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "artwork[exhibitionable]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "artwork[status]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "artwork[style_ids][]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "artwork[style_ids][]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "artwork[style_ids][]",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "artwork[colour_ids][]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "artwork[colour_ids][]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "artwork[colour_ids][]",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "artwork[artwork_images_attributes][][image]",
+									"type": "file",
+									"src": "/home/yasir/Downloads/mop_test_images/square/jr-korpa-xU4-OqOgzoA-unsplash.jpg"
+								},
+								{
+									"key": "artwork[artwork_images_attributes][][image]",
+									"type": "file",
+									"src": "/home/yasir/Downloads/mop_test_images/landscape/europeana-HREmMR4ugkw-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}{{API_PATH}}/artworks",
+							"host": [
+								"{{URL}}{{API_PATH}}"
+							],
+							"path": [
+								"artworks"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "artwork[name]",
+											"value": "First Artwork",
+											"type": "text"
+										},
+										{
+											"key": "artwork[notes]",
+											"value": "This is first artwork.",
+											"type": "text"
+										},
+										{
+											"key": "artwork[edition_type]",
+											"value": "limited",
+											"description": "this has two types, 1- open, 2- Limited. The limited option have quatity bun in open case quatity is nil",
+											"type": "text"
+										},
+										{
+											"key": "artwork[edition_quantity]",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "artwork[sellable]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "artwork[exhibitionable]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "artwork[status]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "artwork[style_ids][]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "artwork[style_ids][]",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "artwork[style_ids][]",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "artwork[colour_ids][]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "artwork[colour_ids][]",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "artwork[colour_ids][]",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "artwork[artwork_images_attributes][][image]",
+											"type": "file",
+											"src": "/home/yasir/Downloads/mop_test_images/portrait/mikita-yo-jIQjKy1PF5A-unsplash.jpg"
+										},
+										{
+											"key": "artwork[artwork_images_attributes][][image]",
+											"type": "file",
+											"src": "/home/yasir/Downloads/mop_test_images/square/jr-korpa-xU4-OqOgzoA-unsplash.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}{{API_PATH}}/artworks",
+									"host": [
+										"{{URL}}{{API_PATH}}"
+									],
+									"path": [
+										"artworks"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Arworks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}{{API_PATH}}/artworks",
+							"host": [
+								"{{URL}}{{API_PATH}}"
+							],
+							"path": [
+								"artworks"
+							],
+							"query": [
+								{
+									"key": "sellable",
+									"value": "true",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "exhibitionable",
+									"value": "0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Artwork",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}{{API_PATH}}/artworks/:id",
+							"host": [
+								"{{URL}}{{API_PATH}}"
+							],
+							"path": [
+								"artworks",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "artwork[name]",
+									"value": "First Artwork Update",
+									"type": "text"
+								},
+								{
+									"key": "artwork[notes]",
+									"value": "This is first artwork.",
+									"type": "text"
+								},
+								{
+									"key": "artwork[edition_type]",
+									"value": "limited",
+									"type": "text"
+								},
+								{
+									"key": "artwork[edition_quantity]",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "artwork[sellable]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "artwork[exhibitionable]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "artwork[status]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "artwork[style_ids][]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "artwork[style_ids][]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "artwork[style_ids][]",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "artwork[colour_ids][]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "artwork[colour_ids][]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "artwork[colour_ids][]",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}{{API_PATH}}/artworks/:id",
+							"host": [
+								"{{URL}}{{API_PATH}}"
+							],
+							"path": [
+								"artworks",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}{{API_PATH}}/artworks/:id",
+							"host": [
+								"{{URL}}{{API_PATH}}"
+							],
+							"path": [
+								"artworks",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user[email]",
+									"value": "artist@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "user[password]",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "user[password_confirmation]",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "confirm_url",
+									"value": "string",
+									"type": "text"
+								},
+								{
+									"key": "user[user_type]",
+									"value": "artist",
+									"description": "artist, customer",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}{{API_PATH}}/users",
+							"host": [
+								"{{URL}}{{API_PATH}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign In",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "artist@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}{{API_PATH}}/oauth/token",
+							"host": [
+								"{{URL}}{{API_PATH}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

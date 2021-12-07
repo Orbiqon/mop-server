@@ -50,8 +50,9 @@ Rails.application.routes.draw do
         passwords: 'api/v1/users/passwords',
         confirmations: 'api/v1/users/confirmations'
       }, scoped_views: 'api/v1/users'
-      resources :styles
+      resources :artworks
       resources :colours
+      resources :styles
     end
   end
 

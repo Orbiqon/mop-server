@@ -3,7 +3,7 @@ require 'api_error_handler'
 module Api
   module V1
     class ApiController < ActionController::API
-      # before_action :doorkeeper_authorize!
+      before_action :doorkeeper_authorize!
       respond_to :json
       helper ApplicationHelper
 

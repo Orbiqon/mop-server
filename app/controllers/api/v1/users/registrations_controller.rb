@@ -19,7 +19,8 @@ module Api
           resource.save
           if resource.persisted?
             expire_data_after_sign_in! unless resource.active_for_authentication?
-            json_response({ customer: resource, message: 'Confirmation email is sent to your email. Please check.' }, 200)
+            json_response({ user: resource, message: 'Confirmation email is sent to your email. Please check.' },
+                          200)
           else
             raise_error('Validation failed', resource.errors.to_h, 422)
           end
@@ -29,7 +30,7 @@ module Api
 
         def sign_up_params
           # write custom params here
-          params.require(:user).permit(:email, :password, :password_confirmation)
+          params.require(:user).permit(:email, :password, :password_confirmation, :user_type)
         end
       end
     end
