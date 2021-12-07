@@ -1,8 +1,8 @@
 module Api
   module V1
     class ColoursController < ApiController
-      def index 
-        @colours = Colour.where(status: 1).order('id ASC')
+      def index
+        @colours = Colour.active
       end
     end
   end

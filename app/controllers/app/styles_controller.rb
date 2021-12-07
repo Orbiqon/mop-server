@@ -4,7 +4,7 @@ module App
 
     def index
       @q = Style.ransack(params[:q])
-      @styles = @q.result(distinct: true).order('id ASC')
+      @styles = @q.result(distinct: true)
     end
 
     def new

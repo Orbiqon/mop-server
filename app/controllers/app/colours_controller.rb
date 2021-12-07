@@ -1,9 +1,10 @@
 module App
   class ColoursController < ApplicationController
     before_action :set_colour, only: %i[edit update]
+
     def index
       @q = Colour.ransack(params[:q])
-      @colours = @q.result(distinct: true).order('id ASC')
+      @colours = @q.result(distinct: true)
     end
 
     def new

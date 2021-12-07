@@ -1,4 +1,5 @@
 class Colour < ApplicationRecord
+  include Activeable
   validates :name, uniqueness: true, presence: true
   before_create :set_form
   before_update :set_form
