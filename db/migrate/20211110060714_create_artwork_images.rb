@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateArtworkImages < ActiveRecord::Migration[6.1]
   def change
     create_table :artwork_images do |t|

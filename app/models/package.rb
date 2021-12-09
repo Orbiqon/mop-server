@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Package < ApplicationRecord
   enum duration_type: %i[daily monthly yearly]
 

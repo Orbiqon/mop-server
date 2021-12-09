@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.artworks do
   json.array! @artworks, partial: 'api/v1/artworks/artwork', as: :artwork
 end

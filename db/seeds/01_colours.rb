@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 colours = [
   { name: 'RED', status: 1 },
   { name: 'GREEN', status: 1 },

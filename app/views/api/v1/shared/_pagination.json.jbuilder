@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.current collection.current_page
 json.previous collection.prev_page
 json.next collection.next_page

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "securerandom"
-require_relative "./errors"
+require 'securerandom'
+require_relative './errors'
 
 module ApiErrorHandler
   class ErrorIdGenerator

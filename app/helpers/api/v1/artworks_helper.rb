@@ -1,2 +1,8 @@
-module Api::V1::ArtworksHelper
+# frozen_string_literal: true
+
+module Api
+  module V1
+    module ArtworksHelper
+    end
+  end
 end

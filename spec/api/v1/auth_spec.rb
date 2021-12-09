@@ -83,7 +83,7 @@ describe 'Authentication' do
                   properties: {
                     email: { type: :string },
                     password: { type: :string },
-                    grant_type: { type: :string, example: 'password' },
+                    grant_type: { type: :string, example: 'password' }
                   },
                   required: %i[email password grant_type]
                 }

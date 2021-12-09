@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def boolean_to_text(status)
     status ? 'Active' : 'Inactive'

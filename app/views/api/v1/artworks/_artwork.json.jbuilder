@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.id artwork.id
 json.user_id artwork.user_id
 json.name artwork.name

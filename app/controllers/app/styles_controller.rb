@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module App
   class StylesController < ApplicationController
     before_action :set_style, only: %i[edit update]

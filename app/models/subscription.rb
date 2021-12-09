@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Subscription < ApplicationRecord
   belongs_to :user
   belongs_to :package
@@ -33,7 +35,8 @@ class Subscription < ApplicationRecord
 
     return if result.failure?
 
-    subscription = next_subscriptionable.subscriptions.create!(subscription_params(self, package, result.success[:charge].id))
+    subscription = next_subscriptionable.subscriptions.create!(subscription_params(self, package,
+                                                                                   result.success[:charge].id))
     subscription.set_expiry
   end
 
