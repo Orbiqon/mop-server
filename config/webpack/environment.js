@@ -1,12 +1,15 @@
-const { environment } = require('@rails/webpacker')
+const { environment } = require("@rails/webpacker");
 
-const webpack = require('webpack')
-environment.plugins.append('Provide', new webpack.ProvidePlugin({
-  $: 'jquery/src/jquery',
-  jQuery: 'jquery/src/jquery',
-  'window.jQuery': 'jquery',
-  Popper: ['popper.js', 'default']
-}))
+const webpack = require("webpack");
+environment.plugins.append(
+  "Provide",
+  new webpack.ProvidePlugin({
+    $: "jquery",
+    jQuery: "jquery",
+    Rails: "@rails/ujs",
+    // "window.jQuery": "jquery",
+    // Popper: ["popper.js", "default"],
+  })
+);
 
-
-module.exports = environment
+module.exports = environment;

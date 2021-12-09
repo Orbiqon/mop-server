@@ -2,11 +2,11 @@ require('sidekiq/web')
 
 Rails.application.routes.draw do
   default_url_options host: ENV['ASSET_PATH']
-  
-  #Sidekiq Routes
+
+  # Sidekiq Routes
   mount Sidekiq::Web => '/sidekiq'
-  
-  #Swagger Routes
+
+  # Swagger Routes
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
 
@@ -27,6 +27,13 @@ Rails.application.routes.draw do
     end
   end
 
+  # APP Routes
+  scope module: :app, path: 'app' do
+    resource :dashboard, only: [:show]
+    resources :styles
+    resources :colours
+  end
+
   # API Routes
   scope '/api' do
     scope '/v1' do
@@ -43,12 +50,10 @@ Rails.application.routes.draw do
         passwords: 'api/v1/users/passwords',
         confirmations: 'api/v1/users/confirmations'
       }, scoped_views: 'api/v1/users'
+      resources :artworks
+      resources :colours
+      resources :styles
     end
-  end
-
-  # APP Routes
-  scope module: :app, path: 'app' do
-    resource :dashboard, only: [:show]
   end
 
   # root to: 'home#index'
