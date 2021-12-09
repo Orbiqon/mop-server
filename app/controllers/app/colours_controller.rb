@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module App
   class ColoursController < ApplicationController
     before_action :set_colour, only: %i[edit update]

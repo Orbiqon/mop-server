@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 styles = [
   { name: 'ABSTRACT', status: 1 },
   { name: 'ARCHITECTURAL', status: 1 },

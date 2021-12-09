@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -16,13 +18,14 @@ gem 'hotwire-rails'
 gem 'kaminari'
 gem 'letter_opener'
 gem 'mailjet'
-gem "mini_magick"
+gem 'mini_magick'
 gem 'ransack', github: 'activerecord-hackery/ransack'
-gem 'rmagick'
 gem 'rexml', '~> 3.2', '>= 3.2.5'
+gem 'rmagick'
 gem 'rolify'
 gem 'rspec-rails'
 gem 'rswag'
+gem 'rubocop', require: false
 gem 'stripe'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'

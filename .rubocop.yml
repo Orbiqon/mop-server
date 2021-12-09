@@ -1,0 +1,39 @@
+AllCops:
+  TargetRubyVersion: 3.0.1
+  Exclude:
+    - "db/schema.rb"
+    - "config/initializers/*"
+    - "bin/bundle"
+
+Style/Encoding:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 200
+  Exclude:
+    - "db/seeds.rb"
+
+Metrics/ClassLength:
+  Max: 500
+
+Metrics/MethodLength:
+  Max: 25
+
+Metrics/BlockLength:
+  Max: 50
+  Exclude:
+    - "config/routes.rb"
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 50
+
+Style/MixinUsage:
+  Exclude:
+    - "bin/update"
+    - "bin/setup"
+
+Metrics/ParameterLists:
+  Enabled: false

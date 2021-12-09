@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TrialExpireWorker
   include Sidekiq::Worker
   sidekiq_options queue: :low, retry: false, backtrace: true

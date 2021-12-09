@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Style < ApplicationRecord
   include Activeable
   validates :name, uniqueness: true, presence: true
@@ -6,5 +8,5 @@ class Style < ApplicationRecord
 
   def set_form
     self.name = name.squeeze(' ').strip.upcase
-  end  
+  end
 end

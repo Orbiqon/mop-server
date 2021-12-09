@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Colour < ApplicationRecord
   include Activeable
   validates :name, uniqueness: true, presence: true

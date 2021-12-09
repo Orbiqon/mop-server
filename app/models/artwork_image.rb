@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ArtworkImage < ApplicationRecord
   enum orientation: {
     landscape: 0,

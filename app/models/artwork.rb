@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 class Artwork < ApplicationRecord
   validates :name, presence: true
   validates :sellable, inclusion: { in: [true, false], message: 'must be Boolean' }
   validates :exhibitionable, inclusion: { in: [true, false], message: 'must be Boolean' }
   validates :status, inclusion: { in: [true, false], message: 'must be Boolean' }
-  validates :edition_quantity, numericality: true, if: :is_type_limited?
+  validates :edition_quantity, numericality: true, if: :type_limited?
 
-  def is_type_limited?
+  def type_limited?
     edition_type == 'limited'
   end
 
