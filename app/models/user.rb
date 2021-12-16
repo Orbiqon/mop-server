@@ -21,6 +21,7 @@ class User < ApplicationRecord
 
   has_one :profile
   has_many :artworks
+  has_many :exhibitions
   has_many :subscriptions
   after_create :assign_default_role
 
