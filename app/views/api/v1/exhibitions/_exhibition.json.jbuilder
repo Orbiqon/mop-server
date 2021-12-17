@@ -8,7 +8,7 @@ json.status exhibition.status
 json.key exhibition.key
 
 json.exhibition_style do
-  json.partial! 'api/v1/exhibition_styles/exhibition_style', style: ExhibitionStyle.find_by(id: exhibition.exhibition_style_id)
+  json.partial! 'api/v1/exhibition_styles/exhibition_style', style: exhibition.exhibition_style
 end
 
 json.artworks do

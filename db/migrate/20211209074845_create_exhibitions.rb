@@ -4,7 +4,7 @@ class CreateExhibitions < ActiveRecord::Migration[6.1]
   def change
     create_table :exhibitions do |t|
       t.references :user
-      t.belongs_to :exhibition_style
+      t.references :exhibition_style
       t.string :room_name
       t.string :artist_name
       t.boolean :draft, default: 0

@@ -4,6 +4,7 @@ module Api
   module V1
     class ExhibitionsController < ApiController
       before_action :set_exhibition, only: %i[show update destroy]
+
       def index
         @exhibitions = current_user.exhibitions.draft(params[:draft]).page(params[:page]).per(params[:per_page])
       end
