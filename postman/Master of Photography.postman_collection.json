@@ -11,6 +11,16 @@
 				{
 					"name": "Get Styles",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -28,6 +38,16 @@
 				{
 					"name": "Get Colours",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -41,14 +61,9 @@
 						}
 					},
 					"response": []
-				}
-			]
-		},
-		{
-			"name": "Artwork",
-			"item": [
+				},
 				{
-					"name": "Create",
+					"name": "Get Exhibition Styles",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -60,6 +75,28 @@
 								}
 							]
 						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}{{API_PATH}}/exhibition_styles",
+							"host": [
+								"{{URL}}{{API_PATH}}"
+							],
+							"path": [
+								"exhibition_styles"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Artwork",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -134,12 +171,12 @@
 								{
 									"key": "artwork[artwork_images_attributes][][image]",
 									"type": "file",
-									"src": "/home/yasir/Downloads/mop_test_images/square/jr-korpa-xU4-OqOgzoA-unsplash.jpg"
+									"src": "/home/yasir/Downloads/mop_test_images/landscape/europeana-HREmMR4ugkw-unsplash.jpg"
 								},
 								{
 									"key": "artwork[artwork_images_attributes][][image]",
 									"type": "file",
-									"src": "/home/yasir/Downloads/mop_test_images/landscape/europeana-HREmMR4ugkw-unsplash.jpg"
+									"src": "/home/yasir/Downloads/mop_test_images/landscape/boston-public-library-4yPHCb1SPR4-unsplash.jpg"
 								}
 							]
 						},
@@ -260,16 +297,6 @@
 				{
 					"name": "Arworks",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{TOKEN}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -309,16 +336,6 @@
 				{
 					"name": "Artwork",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{TOKEN}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -343,16 +360,6 @@
 				{
 					"name": "Update",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{TOKEN}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -447,16 +454,6 @@
 				{
 					"name": "Delete",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{TOKEN}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
@@ -477,6 +474,36 @@
 						}
 					},
 					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		},
@@ -578,6 +605,290 @@
 						}
 					},
 					"response": []
+				}
+			]
+		},
+		{
+			"name": "Exhibition",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "exhibition[room_name]",
+									"value": "Second Room",
+									"type": "text"
+								},
+								{
+									"key": "exhibition[artist_name]",
+									"value": "Shaven",
+									"type": "text"
+								},
+								{
+									"key": "exhibition[artwork_ids][]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "exhibition[status]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "exhibition[draft]",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "exhibition[exhibition_style_id]",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}{{API_PATH}}/exhibitions",
+							"host": [
+								"{{URL}}{{API_PATH}}"
+							],
+							"path": [
+								"exhibitions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "exhibition[room_name]",
+											"value": "Second Room",
+											"type": "text"
+										},
+										{
+											"key": "exhibition[artist_name]",
+											"value": "Shaven",
+											"type": "text"
+										},
+										{
+											"key": "exhibition[artwork_ids][]",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "exhibition[status]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "exhibition[draft]",
+											"value": "0",
+											"type": "text"
+										},
+										{
+											"key": "exhibition[exhibition_style_id]",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}{{API_PATH}}/exhibitions",
+									"host": [
+										"{{URL}}{{API_PATH}}"
+									],
+									"path": [
+										"exhibitions"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Exhibition",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}{{API_PATH}}/exhibitions/:id",
+							"host": [
+								"{{URL}}{{API_PATH}}"
+							],
+							"path": [
+								"exhibitions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Exhibitions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}{{API_PATH}}/exhibitions",
+							"host": [
+								"{{URL}}{{API_PATH}}"
+							],
+							"path": [
+								"exhibitions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "per_page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "draft",
+									"value": "false",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}{{API_PATH}}/exhibitions/:id",
+							"host": [
+								"{{URL}}{{API_PATH}}"
+							],
+							"path": [
+								"exhibitions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "exhibition[room_name]",
+									"value": "Second Room Updated again",
+									"type": "text"
+								},
+								{
+									"key": "exhibition[artist_name]",
+									"value": "Shaven",
+									"type": "text"
+								},
+								{
+									"key": "exhibition[artwork_ids][]",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "exhibition[status]",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "exhibition[draft]",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "exhibition[exhibition_style_id]",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}{{API_PATH}}/exhibitions/:id",
+							"host": [
+								"{{URL}}{{API_PATH}}"
+							],
+							"path": [
+								"exhibitions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		}

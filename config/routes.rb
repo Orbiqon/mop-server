@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     resource :dashboard, only: [:show]
     resources :styles
     resources :colours
+    resources :exhibition_styles
   end
 
   # API Routes
@@ -53,8 +54,10 @@ Rails.application.routes.draw do
         confirmations: 'api/v1/users/confirmations'
       }, scoped_views: 'api/v1/users'
       resources :artworks
-      resources :colours
-      resources :styles
+      resources :colours, only: [:index]
+      resources :styles, only: [:index]
+      resources :exhibitions
+      resources :exhibition_styles, only: [:index]
     end
   end
 

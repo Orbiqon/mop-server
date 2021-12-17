@@ -1,0 +1,18 @@
+= form_with(model: style, local: true) do |form|
+  - if style.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(style.errors.count, "error")
+        prohibited this style from being saved:
+      %ul
+        - style.errors.full_messages.each do |message|
+          %li= message
+  .form-group
+    = form.label :name
+    = form.text_field :name, class: "form-control"
+  .form-group
+    .form-check.form-switch
+      = form.check_box :status, class: "form-check-input", id: "flexSwitchCheckDefault"
+      %label.form-check-label{for: "flexSwitchCheckDefault"} Active
+  .actions
+    = form.submit class: "btn btn-primary"

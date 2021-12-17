@@ -22,6 +22,9 @@ class Artwork < ApplicationRecord
   has_many :artwork_images, dependent: :destroy
   accepts_nested_attributes_for :artwork_images
 
+  has_many :exhibition_artworks
+  has_many :exhibitions, through: :exhibition_artworks
+
   scope :sellable, ->(value) { where(sellable: value) if value }
   scope :exhibitionable, ->(value) { where(exhibitionable: value) if value }
 end
