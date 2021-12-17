@@ -10,5 +10,5 @@ class ExhibitionStyle < ApplicationRecord
     self.name = name.squeeze(' ').strip.upcase
   end
 
-  belongs_to :exhibition
+  has_many :exhibition
 end

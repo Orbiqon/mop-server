@@ -11,7 +11,7 @@ class Exhibition < ApplicationRecord
     self.key = rand(32**8).to_s(32) if draft == false
   end
 
-  has_one :exhibition_style
+  belongs_to :exhibition_style
 
   has_many :exhibition_artworks
   has_many :artworks, through: :exhibition_artworks
