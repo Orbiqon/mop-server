@@ -22,7 +22,7 @@ module Api
       end
 
       def destroy
-        @artwork.delete
+        @artwork.destroy
       end
 
       private

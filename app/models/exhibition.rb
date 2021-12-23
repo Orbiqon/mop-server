@@ -12,8 +12,9 @@ class Exhibition < ApplicationRecord
   end
 
   belongs_to :exhibition_style
+  belongs_to :gallery
 
-  has_many :exhibition_artworks
+  has_many :exhibition_artworks, dependent: :destroy
   has_many :artworks, through: :exhibition_artworks
 
   scope :draft, ->(value) { where(draft: value) if value.present? }

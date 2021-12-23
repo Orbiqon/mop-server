@@ -20,13 +20,18 @@ class User < ApplicationRecord
   }
 
   has_one :profile
-  has_many :artworks
   has_many :exhibitions
+  has_many :artworks
   has_many :subscriptions
+  has_one :gallery
   after_create :assign_default_role
 
   def assign_default_role
     add_role(user_type) if roles.blank?
+    if user_type == 'artist'
+      create_profile
+      create_gallery
+    end
   end
 
   def assign_artist_role

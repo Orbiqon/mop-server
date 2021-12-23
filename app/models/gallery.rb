@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 class Gallery < ApplicationRecord
-  include AASM
+  enum gallery_type: {
+    private_gallery: 0,
+    public_gallery: 1
+  }
+
+  has_one_attached :logo
+  has_one_attached :watermark
 
   belongs_to :user
-  belongs_to :size
-  belongs_to :frame
-
-  has_many :rooms
-
-  aasm column: 'state' do
-  end
+  has_many :exhibitions
 end

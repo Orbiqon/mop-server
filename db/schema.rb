@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_13_122822) do
+ActiveRecord::Schema.define(version: 2021_12_21_092202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 2021_12_13_122822) do
 
   create_table "exhibitions", force: :cascade do |t|
     t.bigint "user_id"
+    t.bigint "gallery_id"
     t.bigint "exhibition_style_id"
     t.string "room_name"
     t.string "artist_name"
@@ -136,7 +137,20 @@ ActiveRecord::Schema.define(version: 2021_12_13_122822) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["exhibition_style_id"], name: "index_exhibitions_on_exhibition_style_id"
+    t.index ["gallery_id"], name: "index_exhibitions_on_gallery_id"
     t.index ["user_id"], name: "index_exhibitions_on_user_id"
+  end
+
+  create_table "galleries", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.string "artist_name"
+    t.integer "gallery_type"
+    t.string "domain"
+    t.string "welcome_video"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_galleries_on_user_id"
   end
 
   create_table "oauth_access_grants", force: :cascade do |t|
@@ -179,6 +193,26 @@ ActiveRecord::Schema.define(version: 2021_12_13_122822) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "first_name"
+    t.string "surname"
+    t.string "company_name"
+    t.string "phone_number"
+    t.text "bio"
+    t.json "social_account"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "profiles_styles", id: false, force: :cascade do |t|
+    t.bigint "profile_id", null: false
+    t.bigint "style_id", null: false
+    t.index ["profile_id", "style_id"], name: "index_profiles_styles_on_profile_id_and_style_id"
+    t.index ["style_id", "profile_id"], name: "index_profiles_styles_on_style_id_and_profile_id"
   end
 
   create_table "roles", force: :cascade do |t|
