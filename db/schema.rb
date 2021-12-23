@@ -201,7 +201,6 @@ ActiveRecord::Schema.define(version: 2021_12_21_092202) do
     t.string "surname"
     t.string "company_name"
     t.string "phone_number"
-    t.string "email"
     t.text "bio"
     t.json "social_account"
     t.datetime "created_at", precision: 6, null: false

@@ -6,7 +6,6 @@ class CreateProfiles < ActiveRecord::Migration[6.1]
       t.string :surname
       t.string :company_name
       t.string :phone_number
-      t.string :email
       t.text :bio
       t.json :social_account
       t.timestamps
