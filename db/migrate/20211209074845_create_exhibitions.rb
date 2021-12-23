@@ -4,6 +4,7 @@ class CreateExhibitions < ActiveRecord::Migration[6.1]
   def change
     create_table :exhibitions do |t|
       t.references :user
+      t.references :gallery
       t.references :exhibition_style
       t.string :room_name
       t.string :artist_name

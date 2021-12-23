@@ -13,10 +13,10 @@ class Artwork < ApplicationRecord
 
   belongs_to :user
 
-  has_and_belongs_to_many :styles
+  has_and_belongs_to_many :styles, dependent: :destroy
   accepts_nested_attributes_for :styles
 
-  has_and_belongs_to_many :colours
+  has_and_belongs_to_many :colours, dependent: :destroy
   accepts_nested_attributes_for :colours
 
   has_many :artwork_images, dependent: :destroy

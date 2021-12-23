@@ -21,7 +21,7 @@ module Api
       end
 
       def destroy
-        @exhibition.delete
+        @exhibition.destroy
       end
 
       private
@@ -33,7 +33,7 @@ module Api
       def exhibition_params
         params.require(:exhibition).permit(:room_name, :artist_name, :status, :draft, :exhibition_style_id,
                                            artwork_ids: [],
-                                           exhibition_style_ids: [])
+                                           exhibition_style_ids: []).merge(gallery_id: current_user.gallery.id)
       end
     end
   end

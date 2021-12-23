@@ -53,6 +53,8 @@ Rails.application.routes.draw do
         passwords: 'api/v1/users/passwords',
         confirmations: 'api/v1/users/confirmations'
       }, scoped_views: 'api/v1/users'
+      resources :profiles, only: %i[index update]
+      resources :galleries, only: %i[index update]
       resources :artworks
       resources :colours, only: [:index]
       resources :styles, only: [:index]
