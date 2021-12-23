@@ -29,9 +29,8 @@ class User < ApplicationRecord
   def assign_default_role
     add_role(user_type) if roles.blank?
     if user_type == 'artist'
-      user = User.find_by(id: id)
-      user.create_profile
-      user.create_gallery
+      create_profile
+      create_gallery
     end
   end
 
