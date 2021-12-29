@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.id profile.id
 json.email profile.user.email
 json.first_name profile&.first_name

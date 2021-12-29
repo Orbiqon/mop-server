@@ -2,7 +2,7 @@
 
 module Api
   module V1
-    module ProfilesHelper
+    module CouponsHelper
     end
   end
 end

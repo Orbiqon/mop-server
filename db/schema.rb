@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_21_092202) do
+ActiveRecord::Schema.define(version: 2021_12_27_064412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,21 @@ ActiveRecord::Schema.define(version: 2021_12_21_092202) do
     t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "coupons", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "code", null: false
+    t.string "description"
+    t.date "valid_from"
+    t.date "valid_until", null: false
+    t.integer "redemption_limit", default: 1
+    t.integer "coupon_redemptions_count", default: 0
+    t.integer "amount", default: 0
+    t.integer "amount_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_coupons_on_user_id"
   end
 
   create_table "exhibition_artworks", force: :cascade do |t|

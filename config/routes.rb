@@ -60,6 +60,7 @@ Rails.application.routes.draw do
       resources :styles, only: [:index]
       resources :exhibitions
       resources :exhibition_styles, only: [:index]
+      resources :coupons
     end
   end
 

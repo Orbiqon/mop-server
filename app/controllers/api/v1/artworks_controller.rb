@@ -22,7 +22,7 @@ module Api
       end
 
       def destroy
-        @artwork.destroy
+        json_response({ message: 'Artwork was deleted' }, 200) if @artwork.destroy
       end
 
       private

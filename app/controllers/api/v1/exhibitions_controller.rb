@@ -21,7 +21,7 @@ module Api
       end
 
       def destroy
-        @exhibition.destroy
+        json_response({ message: 'Exhibition was deleted' }, 200) if @exhibition.destroy
       end
 
       private
