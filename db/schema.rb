@@ -144,7 +144,6 @@ ActiveRecord::Schema.define(version: 2022_03_22_051840) do
 
   create_table "exhibitions", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "gallery_id"
     t.bigint "exhibition_style_id"
     t.string "room_name"
     t.string "artist_name"
@@ -154,7 +153,6 @@ ActiveRecord::Schema.define(version: 2022_03_22_051840) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["exhibition_style_id"], name: "index_exhibitions_on_exhibition_style_id"
-    t.index ["gallery_id"], name: "index_exhibitions_on_gallery_id"
     t.index ["user_id"], name: "index_exhibitions_on_user_id"
   end
 
@@ -220,6 +218,18 @@ ActiveRecord::Schema.define(version: 2022_03_22_051840) do
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
+  create_table "packages", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.boolean "enable"
+    t.float "price"
+    t.integer "duration_type"
+    t.integer "duration_span"
+    t.integer "trial", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id"
     t.string "first_name"
@@ -257,6 +267,22 @@ ActiveRecord::Schema.define(version: 2022_03_22_051840) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "package_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.boolean "status", default: false
+    t.boolean "renew", default: false
+    t.boolean "on_trial", default: false
+    t.string "charge_id"
+    t.string "job_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["package_id"], name: "index_subscriptions_on_package_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -275,6 +301,7 @@ ActiveRecord::Schema.define(version: 2022_03_22_051840) do
     t.string "unconfirmed_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "stripe_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -292,4 +319,6 @@ ActiveRecord::Schema.define(version: 2022_03_22_051840) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
+  add_foreign_key "subscriptions", "packages"
+  add_foreign_key "subscriptions", "users"
 end
