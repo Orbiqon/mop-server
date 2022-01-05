@@ -11,4 +11,6 @@ class Gallery < ApplicationRecord
 
   belongs_to :user
   has_many :exhibitions
+
+  scope :gallery_type, ->(type) { where(gallery_type: type) }
 end
