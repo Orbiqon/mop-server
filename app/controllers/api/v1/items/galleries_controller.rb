@@ -8,7 +8,7 @@ module Api
 
         def index
           @q = Gallery.ransack(params[:q])
-          @galleries = @q.result.type.page(params[:page]).per(params[:per_page])
+          @galleries = @q.result.gallery_type('public_gallery').page(params[:page]).per(params[:per_page])
         end
 
         def show; end
