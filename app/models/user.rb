@@ -47,4 +47,8 @@ class User < ApplicationRecord
   def confirmation_required?
     false
   end
+
+  def full_name
+    "#{profile.first_name} #{profile.surname}"
+  end
 end

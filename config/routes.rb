@@ -64,5 +64,16 @@ Rails.application.routes.draw do
     end
   end
 
+  scope module: :api, path: 'api' do
+    scope module: :v1, path: 'v1' do
+      scope module: :items, path: 'items' do
+        resources :galleries, only: %i[index show]
+        resources :exhibitions, only: %i[index]
+        resources :artworks, only: %i[index show]
+        resources :artists, only: %i[index show]
+      end
+    end
+  end
+
   # root to: 'home#index'
 end

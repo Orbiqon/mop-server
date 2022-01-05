@@ -18,4 +18,5 @@ class Exhibition < ApplicationRecord
   has_many :artworks, through: :exhibition_artworks
 
   scope :draft, ->(value) { where(draft: value) if value.present? }
+  scope :status, -> { where(status: true) }
 end
