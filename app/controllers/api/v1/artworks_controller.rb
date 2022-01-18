@@ -36,7 +36,7 @@ module Api
                                         :exhibitionable, :status,
                                         style_ids: [],
                                         colour_ids: [],
-                                        artwork_images_attributes: %i[id image])
+                                        artwork_images_attributes: %i[id image orientation])
       end
     end
   end

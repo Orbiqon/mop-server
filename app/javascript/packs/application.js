@@ -17,6 +17,10 @@ application.load(definitionsFromContext(context));
 
 require("jquery");
 require("bootstrap");
+require("datatables.net-bs4");
+
+import $ from "jquery";
+global.$ = jQuery;
 // window.Noty = require('noty');
 
 // Add custom files here

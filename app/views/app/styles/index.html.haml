@@ -14,27 +14,23 @@
   .row.justify-content-md-center
     .col-12
       .card
-        .card-header
-          .row.align-items-center
-            .col
-              = render 'search', q: @q
-            .col-auto
+        
         .card-body
-          .table-responsive
-            %table.table.table-sm.table-nowrap.datatable
-              - if @styles.any?  
-                %thead
+          
+          %table.table.table-striped.table-bordered#example
+            - if @styles.any?  
+              %thead
+                %tr
+                  %th{scope: "col"} Name
+                  %th{scope: "col"} Status
+                  %th{scope: "col"} Action
+              %tbody
+                - @styles.each do |style|
                   %tr
-                    %th{scope: "col"} Name
-                    %th{scope: "col"} Status
-                    %th{scope: "col"} Action
-                %tbody
-                  - @styles.each do |style|
-                    %tr
-                      %td= style.name
-                      %td= boolean_to_text( style.status )
-                      %td.text-right
-                        -# = link_to 'Show', style, class: "btn btn-outline-success btn-sm"
-                        = link_to 'Edit', edit_style_path(style), class: "btn btn-outline-info btn-sm"
-              - else
-                = render 'shared/no_data'
+                    %td= style.name
+                    %td= boolean_to_text( style.status )
+                    %td.text-right
+                      -# = link_to 'Show', style, class: "btn btn-outline-success btn-sm"
+                      = link_to 'Edit', edit_style_path(style), class: "btn btn-outline-info btn-sm"
+            - else
+              = render 'shared/no_data'
