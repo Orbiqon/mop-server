@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2021_12_27_064412) do
     t.string "edition_type"
     t.integer "edition_quantity"
     t.boolean "sellable"
+    t.integer "sell_via"
     t.boolean "exhibitionable"
     t.boolean "status"
     t.datetime "created_at", precision: 6, null: false

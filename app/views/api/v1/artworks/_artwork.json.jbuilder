@@ -6,6 +6,7 @@ json.name artwork.name
 json.edition_type artwork.edition_type
 json.edition_quantity artwork.edition_quantity
 json.sellable artwork.sellable
+json.sell_via artwork.sell_via
 json.exhibitionable artwork.exhibitionable
 json.styles artwork.styles
 json.colours artwork.colours

@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class Artwork < ApplicationRecord
+  enum sell_via: {
+    with_us: 0,
+    self_fulfil: 1
+  }
+
   validates :name, presence: true
   validates :sellable, inclusion: { in: [true, false], message: 'must be Boolean' }
   validates :exhibitionable, inclusion: { in: [true, false], message: 'must be Boolean' }

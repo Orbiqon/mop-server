@@ -9,6 +9,7 @@ class CreateArtworks < ActiveRecord::Migration[6.1]
       t.string :edition_type
       t.integer :edition_quantity, default: nil
       t.boolean :sellable
+      t.integer :sell_via, default: nil
       t.boolean :exhibitionable
       t.boolean :status
       t.timestamps
