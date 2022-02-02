@@ -27,7 +27,7 @@ gem 'rspec-rails'
 gem 'rswag'
 gem 'rubocop', require: false
 gem 'stripe'
-
+gem "aws-sdk-s3", require: false
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 # Use postgresql as the database for Active Record
