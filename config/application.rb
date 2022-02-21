@@ -14,6 +14,20 @@ module MopServer
     config.load_defaults 6.1
     config.autoload_paths << "#{Rails.root}/lib"
 
+    config.middleware.insert_before(0, Rack::Cors) do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: %i[get post put options delete patch]
+      end
+    end
+
+    Rails.application.config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: %i[get post put options delete patch]
+      end
+    end
+
     config.after_initialize do
       require 'custom_token_response'
       require 'custom_token_error_response'
