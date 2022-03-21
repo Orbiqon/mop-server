@@ -35,9 +35,8 @@ class Subscription < ApplicationRecord
 
     return if result.failure?
 
-    subscription = next_subscriptionable.subscriptions.create!(subscription_params(self, package,
-                                                                                   result.success[:charge].id))
-    subscription.set_expiry
+    new_subscription = Subscription.create!(subscription_params(self, package, result.success[:charge].id))
+    new_subscription.set_expiry
   end
 
   def subscription_params(subscription, package, charge_id)
