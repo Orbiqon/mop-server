@@ -72,6 +72,7 @@ Rails.application.routes.draw do
         resources :artworks, only: %i[index show]
         resources :artists, only: %i[index show]
         resources :styles, only: %i[index]
+        resources :insights, only: %i[create]
       end
     end
   end
