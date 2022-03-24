@@ -6,6 +6,7 @@ class CreateArtworkImages < ActiveRecord::Migration[6.1]
       t.references :artwork
       t.integer :orientation, default: nil
       t.integer :sequence, default: nil
+      t.boolean :featured_image, default: false
       t.timestamps
     end
   end

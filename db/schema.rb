@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2022_03_22_051840) do
     t.bigint "artwork_id"
     t.integer "orientation"
     t.integer "sequence"
+    t.boolean "featured_image", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["artwork_id"], name: "index_artwork_images_on_artwork_id"
