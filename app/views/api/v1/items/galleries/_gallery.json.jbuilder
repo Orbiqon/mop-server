@@ -2,4 +2,5 @@
 
 json.id gallery.id
 json.name gallery&.name
-json.artist_name gallery&.user&.profile&.first_name
+json.logo url(gallery.logo)
+json.views gallery.views

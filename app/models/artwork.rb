@@ -32,4 +32,8 @@ class Artwork < ApplicationRecord
 
   scope :sellable, ->(value) { where(sellable: value) if value }
   scope :exhibitionable, ->(value) { where(exhibitionable: value) if value }
+
+  def images
+    artwork_images.count
+  end
 end

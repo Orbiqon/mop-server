@@ -9,6 +9,7 @@ class CreateGalleries < ActiveRecord::Migration[6.1]
       t.integer :gallery_type
       t.string :domain
       t.string :welcome_video
+      t.integer :views, default: 0
       t.timestamps
     end
   end

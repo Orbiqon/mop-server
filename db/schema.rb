@@ -165,6 +165,7 @@ ActiveRecord::Schema.define(version: 2022_03_22_051840) do
     t.integer "gallery_type"
     t.string "domain"
     t.string "welcome_video"
+    t.integer "views", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_galleries_on_user_id"
