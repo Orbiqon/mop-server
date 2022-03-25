@@ -53,19 +53,7 @@ Rails.application.routes.draw do
         passwords: 'api/v1/users/passwords',
         confirmations: 'api/v1/users/confirmations'
       }, scoped_views: 'api/v1/users'
-      resources :profiles, only: %i[index update]
-      resources :galleries, only: %i[index update]
-      resources :artworks
-      resources :colours, only: [:index]
-      resources :styles, only: [:index]
-      resources :exhibitions
-      resources :exhibition_styles, only: [:index]
-      resources :coupons
-    end
-  end
 
-  scope module: :api, path: 'api' do
-    scope module: :v1, path: 'v1' do
       scope module: :items, path: 'items' do
         resources :galleries, only: %i[index show]
         resources :exhibitions, only: %i[index]
@@ -74,8 +62,21 @@ Rails.application.routes.draw do
         resources :styles, only: %i[index]
         resources :insights, only: %i[create]
       end
+
+      resources :profiles, only: %i[index update]
+      resources :galleries, only: %i[index update]
+      resources :artworks
+      resources :colours, only: [:index]
+      resources :styles, only: [:index]
+      resources :exhibitions
+      resources :exhibition_styles, only: [:index]
+      resources :coupons
+      resources :packages do
+        collection do
+          get :trial
+        end
+      end
     end
   end
-
   # root to: 'home#index'
 end

@@ -29,10 +29,11 @@ class User < ApplicationRecord
 
   def assign_default_role
     add_role(user_type) if roles.blank?
-    if user_type == 'artist'
-      create_profile
-      create_gallery
-    end
+
+    return unless user_type == 'artist'
+
+    create_profile
+    create_gallery
   end
 
   def assign_artist_role
@@ -40,7 +41,11 @@ class User < ApplicationRecord
   end
 
   def artist?
-    has_role(:artist)
+    has_role?(:artist)
+  end
+
+  def customer?
+    has_role?(:customer)
   end
 
   # Disable confirmation

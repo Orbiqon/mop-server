@@ -6,6 +6,9 @@ class Package < ApplicationRecord
   validates :duration_type, presence: true
   validates :duration_span, presence: true, numericality: { only_integer: true, other_than: 0 }
 
+  scope :enable, -> { where(enable: true) }
+  scope :on_trial, -> { where(trial: true) }
+
   def calculate_end_date
     case duration_type
     when 'daily'
