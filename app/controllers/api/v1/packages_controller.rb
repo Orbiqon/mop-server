@@ -1,6 +1,6 @@
 module Api
   module V1
-    class PackagesController < VflowApiController
+    class PackagesController < ApiController
       def index
         @packages = Package.enable.where(trial: false).page(params[:page]).per(params[:per_page])
       end
