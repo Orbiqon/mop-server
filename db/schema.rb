@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(version: 2022_03_22_051840) do
 
   create_table "exhibitions", force: :cascade do |t|
     t.bigint "user_id"
+    t.bigint "gallery_id"
     t.bigint "exhibition_style_id"
     t.string "room_name"
     t.string "artist_name"
@@ -153,6 +154,7 @@ ActiveRecord::Schema.define(version: 2022_03_22_051840) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["exhibition_style_id"], name: "index_exhibitions_on_exhibition_style_id"
+    t.index ["gallery_id"], name: "index_exhibitions_on_gallery_id"
     t.index ["user_id"], name: "index_exhibitions_on_user_id"
   end
 

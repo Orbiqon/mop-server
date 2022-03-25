@@ -7,7 +7,8 @@ module Api
       before_action :set_artwork, only: %i[show update destroy]
 
       def index
-        @artworks = current_user.artworks.sellable(params[:sellable]).exhibitionable(params[:exhibitionable]).page(params[:page]).per(params[:per_page])
+        @q = current_user.artworks.ransack(params[:q])
+        @artworks = @q.result.sellable(params[:sellable]).exhibitionable(params[:exhibitionable]).page(params[:page]).per(params[:per_page])
       end
 
       def create
