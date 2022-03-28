@@ -7,4 +7,8 @@ class Profile < ApplicationRecord
 
   has_and_belongs_to_many :styles
   accepts_nested_attributes_for :styles
+  
+  def full_name
+    "#{first_name} #{surname}"
+  end
 end
