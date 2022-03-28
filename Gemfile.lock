@@ -7,6 +7,14 @@ GIT
       activesupport (>= 6.0.4)
       i18n
 
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 91950218dd39119e420ca431fc9fae09b53986c7
+  branch: master
+  specs:
+    faker (2.20.0)
+      i18n (>= 1.8.11, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -396,6 +404,7 @@ DEPENDENCIES
   dotenv-rails
   dry-matcher
   dry-monads
+  faker!
   haml
   hotwire-rails
   jbuilder (~> 2.7)
@@ -417,6 +426,7 @@ DEPENDENCIES
   rspec-rails
   rswag
   rubocop
+  ruby-progressbar
   sass-rails (>= 6)
   selenium-webdriver
   sidekiq
