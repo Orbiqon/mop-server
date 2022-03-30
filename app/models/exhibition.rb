@@ -16,7 +16,9 @@ class Exhibition < ApplicationRecord
 
   has_many :exhibition_artworks, dependent: :destroy
   has_many :artworks, through: :exhibition_artworks
-
+  
+  has_one_attached :image
+  
   scope :draft, ->(value) { where(draft: value) if value.present? }
   scope :status, -> { where(status: true) }
 end

@@ -6,6 +6,8 @@ json.artist_name exhibition&.artist_name
 json.draft exhibition.draft
 json.status exhibition.status
 json.key exhibition.key
+json.image url(exhibition.image)
+json.views exhibition.views
 
 json.exhibition_style do
   json.partial! 'api/v1/exhibition_styles/exhibition_style', style: exhibition.exhibition_style
