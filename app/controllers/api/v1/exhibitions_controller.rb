@@ -32,8 +32,7 @@ module Api
 
       def exhibition_params
         params.require(:exhibition).permit(:room_name, :artist_name, :status, :draft, :exhibition_style_id, :image,
-                                           artwork_ids: [],
-                                           exhibition_style_ids: []).merge(gallery_id: current_user.gallery.id)
+                                            artwork_ids: []).merge(gallery_id: current_user.gallery.id)
       end
     end
   end

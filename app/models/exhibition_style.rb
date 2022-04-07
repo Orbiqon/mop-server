@@ -11,5 +11,5 @@ class ExhibitionStyle < ApplicationRecord
   end
 
   has_one_attached :image
-  belongs_to :exhibition, optional: true
+  has_one :exhibition
 end
