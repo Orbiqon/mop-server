@@ -56,7 +56,11 @@ Rails.application.routes.draw do
 
       scope module: :items, path: 'items' do
         resources :galleries, only: %i[index show]
-        resources :exhibitions, only: %i[index]
+        resources :exhibitions do
+          collection do
+            get :by_key
+          end
+        end
         resources :artworks, only: %i[index show]
         resources :artists, only: %i[index show]
         resources :styles, only: %i[index]
