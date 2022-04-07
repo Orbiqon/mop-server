@@ -7,8 +7,9 @@ class ExhibitionStyle < ApplicationRecord
   before_update :set_form
 
   def set_form
-    self.name = name.squeeze(' ').strip.upcase
+    self.slug = name.squeeze(' ').strip.downcase
   end
 
-  has_many :exhibition
+  has_one_attached :image
+  belongs_to :exhibition, optional: true
 end

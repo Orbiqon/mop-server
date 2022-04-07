@@ -11,6 +11,12 @@
     = form.label :name
     = form.text_field :name, class: "form-control"
   .form-group
+    = form.label :description
+    = form.text_area :description, class: "form-control"
+  .form-group
+    = form.label :image
+    = form.file_field :image, class: "form-control"  
+  .form-group
     .form-check.form-switch
       = form.check_box :status, class: "form-check-input", id: "flexSwitchCheckDefault"
       %label.form-check-label{for: "flexSwitchCheckDefault"} Active

@@ -39,7 +39,7 @@ module App
     end
 
     def exhibition_style_params
-      params.require(:exhibition_style).permit(:name, :status)
+      params.require(:exhibition_style).permit(:name, :status, :slug, :description, :image)
     end
   end
 end
