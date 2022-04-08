@@ -3,9 +3,9 @@
 module Api
   module V1
     class ProfilesController < ApiController
-      before_action :set_profile, only: %i[index update]
+      before_action :set_profile, only: %i[show update]
 
-      def index; end
+      def show; end
 
       def update
         @profile.update!(profile_params)

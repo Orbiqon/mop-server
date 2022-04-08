@@ -67,8 +67,8 @@ Rails.application.routes.draw do
         resources :insights, only: %i[create]
       end
 
-      resources :profiles, only: %i[index update]
-      resources :galleries, only: %i[index update]
+      resource :profile, only: %i[show update]
+      resource :gallery, only: %i[show update]
       resources :artworks
       resources :colours, only: [:index]
       resources :styles, only: [:index]

@@ -3,9 +3,9 @@
 module Api
   module V1
     class GalleriesController < ApiController
-      before_action :set_gallery, only: %i[index update]
+      before_action :set_gallery, only: %i[show update]
 
-      def index; end
+      def show; end
 
       def update
         @gallery.update!(gallery_params)
