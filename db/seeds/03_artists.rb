@@ -2,7 +2,7 @@ progressbar = ProgressBar.create(
   title: 'Creating Artist'
 )
 
-10.times do |u|
+5.times do |u|
   user = User.create(email: "artist#{u + 1}@gmail.com", password: '123456', user_type: 'artist')
   user.gallery.update(name: Faker::Artist.name, gallery_type: 'public_gallery', domain: 'https://www.thearticit.com', welcome_video: 'https://youtu.be/LxqIN5r0c_0',
                       views: Faker::Number.between(from: 1, to: 5000))
