@@ -10,7 +10,11 @@ module Api
           @q = Artwork.ransack(params[:q])
           @artworks = @q.result.sellable('true').exhibitionable('true').page(params[:page]).per(params[:per_page])
         end
-
+        
+        def featured
+          @artworks = Artwork.all.sample(4)  
+        end
+        
         def show; end
 
         private

@@ -61,7 +61,11 @@ Rails.application.routes.draw do
             get :by_key
           end
         end
-        resources :artworks, only: %i[index show]
+        resources :artworks do
+          collection do
+            get :featured
+          end
+        end
         resources :artists, only: %i[index show]
         resources :styles, only: %i[index]
         resources :insights, only: %i[create]

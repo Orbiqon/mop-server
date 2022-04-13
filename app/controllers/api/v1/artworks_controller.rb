@@ -15,7 +15,7 @@ module Api
         @artwork = current_user.artworks.new(artwork_params)
         @artwork.save!
       end
-
+            
       def show; end
 
       def update
