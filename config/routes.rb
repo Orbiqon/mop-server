@@ -69,6 +69,11 @@ Rails.application.routes.draw do
         resources :artists, only: %i[index show]
         resources :styles, only: %i[index]
         resources :insights, only: %i[create]
+        resources :packages do
+          collection do
+            get :trial
+          end
+        end
       end
 
       resource :profile, only: %i[show update]
