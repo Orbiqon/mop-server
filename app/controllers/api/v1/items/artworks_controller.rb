@@ -12,7 +12,7 @@ module Api
         end
         
         def featured
-          @artworks = Artwork.limit(5).order('id desc')  
+          @artworks = Artwork.all.sample(4)  
         end
         
         def show; end
