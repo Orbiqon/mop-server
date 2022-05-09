@@ -74,6 +74,7 @@ Rails.application.routes.draw do
             get :trial
           end
         end
+        resources :orders
       end
 
       resource :profile, only: %i[show update]
