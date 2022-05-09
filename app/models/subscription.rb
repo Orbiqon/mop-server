@@ -42,6 +42,7 @@ class Subscription < ApplicationRecord
   def subscription_params(subscription, package, charge_id)
     {}.tap do |p|
       p[:user_id] = subscription.user_id
+      p[:package_id] = package.id
       p[:start_date] = Time.now
       p[:end_date] = package.calculate_end_date
       p[:status] = true
