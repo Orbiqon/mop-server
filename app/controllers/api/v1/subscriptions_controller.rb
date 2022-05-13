@@ -1,19 +1,12 @@
 module Api
   module V1
-    class SubscriptionsController < VflowApiController
-      def index
-        
-      end
-
+    class SubscriptionsController < ApiController
       def create
-        current_user # artist
-        # params => token, package_id
-
         package = Package.find(params[:package_id])
         token = params[:token]
         service = StripeService.new(current_user, package)
-        service.create_stripe_user(token)
-        result = service.process_payment(package.amount)
+        service.create_stripe_user(token, 'artist')
+        result = service.process_payment(package.price)
 
         return raise_error('Stripe Payment Error', result.failure[:message], 422) if result&.failure?
 
@@ -46,14 +39,14 @@ end
 # Order Controller
 #####################
 
-current_user # customer
-token = params[:token]
-service = StripeService.new(current_user)
-service.create_stripe_user(token)
-result = service.process_payment(ORDER_AMOUNT)
+# current_user # customer
+# token = params[:token]
+# service = StripeService.new(current_user)
+# service.create_stripe_user(token)
+# result = service.process_payment(ORDER_AMOUNT)
 
-return raise_error('Stripe Payment Error', result.failure[:message], 422) if result&.failure?
+# return raise_error('Stripe Payment Error', result.failure[:message], 422) if result&.failure?
 
-Order.create
+# Order.create
 
-json_response({ message: 'Order Complete' })
+# json_response({ message: 'Order Complete' })

@@ -8,8 +8,8 @@ class Subscription < ApplicationRecord
   scope :recent, -> { last }
 
   after_create :set_expiry
-  after_create :subscription_created
-  after_update :subscription_expired
+  # after_create :subscription_created
+  # after_update :subscription_expired
 
   def set_expiry
     return if on_trial

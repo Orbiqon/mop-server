@@ -20,7 +20,7 @@ class StripeService
     charge = Stripe::Charge.create(
       amount: (amount * 100).to_i,
       description: payment_description,
-      user: user.stripe_id,
+      customer: user.stripe_id,
       currency: 'USD'
     )
     Success(charge: charge)
@@ -28,16 +28,15 @@ class StripeService
     Failure(message: e.message)
   end
 
-  def create_stripe_user(token)
+  def create_stripe_user(token, type = nil)
     return unless user.stripe_id.nil?
-
+    
     begin
       stripe_user = Stripe::Customer.create({
-                                              name: user.name,
+                                              name: type,
                                               email: user.email,
                                               source: token
                                             })
-
       user.update(stripe_id: stripe_user.id)
       Success(user: user)
     rescue StandardError => e

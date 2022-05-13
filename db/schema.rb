@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_06_071150) do
+ActiveRecord::Schema.define(version: 2022_05_10_054614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -230,6 +230,7 @@ ActiveRecord::Schema.define(version: 2022_05_06_071150) do
     t.string "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "price", precision: 10, scale: 2
     t.index ["artwork_id"], name: "index_order_items_on_artwork_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
   end
@@ -249,7 +250,7 @@ ActiveRecord::Schema.define(version: 2022_05_06_071150) do
     t.text "shipping_address_3"
     t.text "shipping_postcode"
     t.text "shipping_country"
-    t.string "price"
+    t.string "total_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
