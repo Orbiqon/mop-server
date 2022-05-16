@@ -90,7 +90,7 @@ Rails.application.routes.draw do
           get :trial
         end
       end
-      resources :subscriptions, only: %i[create]
+      resources :subscriptions
     end
   end
   # root to: 'home#index'
