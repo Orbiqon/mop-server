@@ -74,7 +74,6 @@ Rails.application.routes.draw do
             get :trial
           end
         end
-        resources :orders
       end
 
       resource :profile, only: %i[show update]
@@ -91,6 +90,7 @@ Rails.application.routes.draw do
         end
       end
       resources :subscriptions
+      resources :orders
     end
   end
   # root to: 'home#index'

@@ -28,7 +28,7 @@ class StripeService
     Failure(message: e.message)
   end
 
-  def create_stripe_user(token, type = nil)
+  def create_stripe_user(token, type = "user")
     return unless user.stripe_id.nil?
     
     begin
@@ -65,7 +65,7 @@ class StripeService
   end
 
   def payment_description
-    "Package - (#{package.name})"
+    package ? "Package - (#{package.name})" : "Order Confirmation"
   end
 
   def card_information
