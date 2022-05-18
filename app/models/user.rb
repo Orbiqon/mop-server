@@ -25,6 +25,7 @@ class User < ApplicationRecord
   has_many :subscriptions
   has_one :gallery
   has_many :coupons
+  has_many :orders
   after_create :assign_default_role
 
   def assign_default_role
