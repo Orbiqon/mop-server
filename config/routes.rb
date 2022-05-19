@@ -91,6 +91,7 @@ Rails.application.routes.draw do
       end
       resources :subscriptions
       resources :orders
+      resource :artist_setting, only: %i[show update]
     end
   end
   # root to: 'home#index'

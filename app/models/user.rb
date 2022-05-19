@@ -26,6 +26,7 @@ class User < ApplicationRecord
   has_one :gallery
   has_many :coupons
   has_many :orders
+  has_one :artist_setting
   after_create :assign_default_role
 
   def assign_default_role
@@ -35,6 +36,7 @@ class User < ApplicationRecord
 
     create_profile
     create_gallery
+    create_artist_setting
   end
 
   def assign_artist_role
