@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_19_054703) do
+ActiveRecord::Schema.define(version: 2022_05_20_093813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -120,6 +120,12 @@ ActiveRecord::Schema.define(version: 2022_05_19_054703) do
   create_table "colours", force: :cascade do |t|
     t.string "name"
     t.boolean "status", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "continents", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -332,6 +338,18 @@ ActiveRecord::Schema.define(version: 2022_05_19_054703) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["package_id"], name: "index_subscriptions_on_package_id"
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
+  create_table "tax_rates", force: :cascade do |t|
+    t.bigint "continent_id"
+    t.string "country"
+    t.string "rate"
+    t.string "total_rate"
+    t.string "on_shipping"
+    t.string "on_digital"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["continent_id"], name: "index_tax_rates_on_continent_id"
   end
 
   create_table "users", force: :cascade do |t|

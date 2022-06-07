@@ -1,0 +1,44 @@
+
+.header
+  .container-fluid
+    .header-body
+      .row.align-items-end
+        .col
+          %h6.header-pretitle
+            Overview
+          %h1.header-title
+            Tax Rates
+        .col-auto
+          = link_to 'New Tax Rate', new_tax_rate_path, class: "btn btn-outline-primary"  
+.container-fluid
+  .row.justify-content-md-center
+    .col-12
+      .card
+        
+        .card-body
+          
+          %table.table.table-striped.table-bordered#example
+            - if @tax_rates.any?  
+              %thead
+                %tr
+                  %th{scope: "col"} Continent
+                  %th{scope: "col"} Country
+                  %th{scope: "col"} Rate
+                  %th{scope: "col"} Total Rate
+                  %th{scope: "col"} On Shipping
+                  %th{scope: "col"} On Digital
+                  %th{scope: "col"} Action
+              %tbody
+                - @tax_rates.each do |tax|
+                  %tr
+                    %td= tax.continent.name
+                    %td= tax.country
+                    %td= tax.rate
+                    %td= tax.total_rate
+                    %td= tax.on_shipping
+                    %td= tax.on_digital
+                    %td.text-right
+                      -# = link_to 'Show', style, class: "btn btn-outline-success btn-sm"
+                      = link_to 'Edit', edit_tax_rate_path(tax), class: "btn btn-outline-info btn-sm"
+            - else
+              = render 'shared/no_data'

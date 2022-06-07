@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     resources :styles
     resources :colours
     resources :exhibition_styles
+    resources :tax_rates
   end
 
   # API Routes
@@ -92,6 +93,7 @@ Rails.application.routes.draw do
       resources :subscriptions
       resources :orders
       resource :artist_setting, only: %i[show update]
+      resources :tax_rates
     end
   end
   # root to: 'home#index'

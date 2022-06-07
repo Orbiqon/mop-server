@@ -1,0 +1,35 @@
+= form_with(model: tax_rate, local: true) do |form|
+  - if tax_rate.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(tax_rate.errors.count, "error")
+        prohibited this tax_rate from being saved:
+      %ul
+        - tax_rate.errors.full_messages.each do |message|
+          %li= message
+  .form-group
+    = form.label "Continent"
+    = form.collection_select :continent_id, Continent.all, :id, :name, {propmt: true}, {class: "form-control"}
+  
+  .form-group
+    = form.label :country
+    = form.text_field :country, class: "form-control"
+  
+  .form-group
+    = form.label :rate
+    = form.text_field :rate, class: "form-control"
+    
+  .form-group
+    = form.label :total_rate
+    = form.text_field :total_rate, class: "form-control"  
+    
+  .form-group
+    = form.label :on_shipping  
+    = form.select :on_shipping, [['Yes', 'Yes'], ['No', 'No']], {prompt: "Select Shipping"}, {class: "form-control"}
+    
+  .form-group
+    = form.label :on_digital  
+    = form.select :on_digital, [['Yes', 'Yes'], ['No', 'No']], {prompt: "Select Digital"}, {class: "form-control"}
+          
+  .actions
+    = form.submit class: "btn btn-primary"
