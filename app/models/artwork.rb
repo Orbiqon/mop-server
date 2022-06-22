@@ -29,7 +29,9 @@ class Artwork < ApplicationRecord
 
   has_many :exhibition_artworks
   has_many :exhibitions, through: :exhibition_artworks
-
+  
+  belongs_to :price_sheet
+  
   scope :sellable, ->(value) { where(sellable: value) if value }
   scope :exhibitionable, ->(value) { where(exhibitionable: value) if value }
 

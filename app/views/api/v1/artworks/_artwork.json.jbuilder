@@ -11,6 +11,20 @@ json.exhibitionable artwork.exhibitionable
 json.styles artwork.styles
 json.colours artwork.colours
 
+if artwork.price_sheet
+  json.price_sheet do
+    json.id artwork.price_sheet.id
+    json.name artwork.price_sheet.name
+    json.entries artwork.price_sheet.price_sheet_entries do |entry|
+      json.id entry.id
+      json.paper_one Paper.find_by(id: entry.paper_one).name 
+      json.paper_two Paper.find_by(id: entry.paper_two).name
+      json.size Size.find_by(id: entry.size).name
+      json.price entry.price
+    end
+  end
+end
+
 json.images do
   json.array! artwork.artwork_images, partial: 'api/v1/artworks/artwork_images', as: :artwork_image
 end

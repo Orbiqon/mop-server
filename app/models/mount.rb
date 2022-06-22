@@ -1,3 +1,3 @@
-class Size < ApplicationRecord
+class Mount < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 end

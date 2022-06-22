@@ -34,7 +34,7 @@ module Api
 
       def artwork_params
         params.require(:artwork).permit(:name, :notes, :edition_type, :edition_quantity, :sellable,
-                                        :sell_via, :exhibitionable, :status,
+                                        :sell_via, :exhibitionable, :status, :price_sheet_id,
                                         style_ids: [],
                                         colour_ids: [],
                                         artwork_images_attributes: %i[id image orientation featured_image])

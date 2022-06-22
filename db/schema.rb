@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_20_093813) do
+ActiveRecord::Schema.define(version: 2022_06_21_080856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,8 @@ ActiveRecord::Schema.define(version: 2022_05_20_093813) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "views", default: 0
+    t.bigint "price_sheet_id"
+    t.index ["price_sheet_id"], name: "index_artworks_on_price_sheet_id"
     t.index ["user_id"], name: "index_artworks_on_user_id"
   end
 
@@ -115,6 +117,12 @@ ActiveRecord::Schema.define(version: 2022_05_20_093813) do
     t.bigint "style_id", null: false
     t.index ["artwork_id", "style_id"], name: "index_artworks_styles_on_artwork_id_and_style_id"
     t.index ["style_id", "artwork_id"], name: "index_artworks_styles_on_style_id_and_artwork_id"
+  end
+
+  create_table "borders", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "colours", force: :cascade do |t|
@@ -180,6 +188,12 @@ ActiveRecord::Schema.define(version: 2022_05_20_093813) do
     t.index ["user_id"], name: "index_exhibitions_on_user_id"
   end
 
+  create_table "frames", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "galleries", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
@@ -196,6 +210,18 @@ ActiveRecord::Schema.define(version: 2022_05_20_093813) do
   create_table "insights", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "mouldings", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "mounts", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -287,6 +313,29 @@ ActiveRecord::Schema.define(version: 2022_05_20_093813) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "papers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "price_sheet_entries", force: :cascade do |t|
+    t.bigint "price_sheet_id"
+    t.integer "paper_one"
+    t.integer "paper_two"
+    t.integer "size"
+    t.string "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["price_sheet_id"], name: "index_price_sheet_entries_on_price_sheet_id"
+  end
+
+  create_table "price_sheets", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id"
     t.string "first_name"
@@ -315,6 +364,12 @@ ActiveRecord::Schema.define(version: 2022_05_20_093813) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource"
+  end
+
+  create_table "sizes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "styles", force: :cascade do |t|

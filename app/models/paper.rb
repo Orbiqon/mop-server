@@ -1,4 +1,3 @@
-# frozen_string_literal: true
-
 class Paper < ApplicationRecord
+  validates :name, presence: true, uniqueness: true
 end

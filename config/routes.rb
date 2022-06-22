@@ -94,6 +94,11 @@ Rails.application.routes.draw do
       resources :orders
       resource :artist_setting, only: %i[show update]
       resources :tax_rates
+      resources :price_sheets do 
+        collection do
+          get :get_pricing_data
+        end
+      end
     end
   end
   # root to: 'home#index'
