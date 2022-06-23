@@ -65,6 +65,7 @@ Rails.application.routes.draw do
         resources :artworks do
           collection do
             get :featured
+            get :get_paper_and_price
           end
         end
         resources :artists, only: %i[index show]

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 json.artworks do
-  json.array! @artworks, partial: 'api/v1/items/artworks/artwork', as: :artwork
+  json.array! @artworks, partial: 'api/v1/items/artworks/artwork_index', as: :artwork
 end
 
 json.pagination do
