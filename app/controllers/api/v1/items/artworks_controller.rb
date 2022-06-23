@@ -18,9 +18,7 @@ module Api
         def show; end
         
         def get_paper_and_price
-          size = @artwork.price_sheet.price_sheet_entries.find_by(size: params[:size])  
-          @papers = {"paper_one": size&.paper_one, "paper_two": size&.paper_two, "price": size&.price}
-          json_response({ price_and_paper: @papers }, 200) 
+          @size = @artwork.price_sheet.price_sheet_entries.find_by(size: params[:size]) 
         end
         
         private
