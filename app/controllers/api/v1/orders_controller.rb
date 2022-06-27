@@ -17,7 +17,7 @@ module Api
         
       def order_params
         params.require(:order).permit(:first_name, :last_name, :phone_number ,:address_1, :address_2, :address_3, :postcode,:country, :shipping_address_1, :shipping_address_2, :shipping_address_3, :shipping_postcode, :shipping_country, :total_price, 
-        order_items_attributes: %i[user_id artwork_id quantity price])
+        order_items_attributes: %i[user_id artwork_id quantity size paper frame mount_size price])
       end
     end
   end
