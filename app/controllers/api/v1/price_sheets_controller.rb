@@ -16,6 +16,7 @@ module Api
       end
       
       def update
+        @price_sheet.price_sheet_entries.delete_all
         @price_sheet.update!(price_sheet_params)
       end
       
@@ -28,7 +29,7 @@ module Api
       
       def price_sheet_params
         params.require(:price_sheet).permit(:name,
-                                            price_sheet_entries_attributes: %i[id paper_one paper_two size price])
+                                            price_sheet_entries_attributes: %i[ id paper_one paper_two size price])
       end
       
       def set_price_sheet
