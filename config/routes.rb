@@ -68,7 +68,11 @@ Rails.application.routes.draw do
             get :get_paper_and_price
           end
         end
-        resources :artists, only: %i[index show]
+        resources :artists do
+          collection do
+            get :search_artist
+          end
+        end
         resources :styles, only: %i[index]
         resources :insights, only: %i[create]
         resources :packages do

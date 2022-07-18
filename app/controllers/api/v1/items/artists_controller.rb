@@ -12,7 +12,12 @@ module Api
         end
 
         def show; end
-
+        
+        def search_artist
+          @q = User.with_role(:artist).ransack(params[:q])
+          @artists = @q.result  
+        end
+        
         private
 
         def set_artist
