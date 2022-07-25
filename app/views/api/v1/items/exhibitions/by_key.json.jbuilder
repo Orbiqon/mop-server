@@ -7,5 +7,4 @@ json.exhibition_detail do
   
 end
 
-
-json.artwork_images @exhibition&.artworks, partial: "api/v1/items/artworks/artwork_detail", as: :artwork
+json.artwork_images @exhibition&.artworks, partial: "api/v1/items/exhibitions/artwork_detail", as: :artwork
