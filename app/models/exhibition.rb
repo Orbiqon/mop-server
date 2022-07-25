@@ -21,4 +21,8 @@ class Exhibition < ApplicationRecord
   
   scope :draft, ->(value) { where(draft: value) if value.present? }
   scope :status, -> { where(status: true) }
+  
+  def artwork_images
+    artworks.map(&:artwork_images).flatten
+  end
 end
