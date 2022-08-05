@@ -4,9 +4,9 @@ class Order < ApplicationRecord
   
   belongs_to :user
   
-  after_create :send_mail
+  # after_create :send_mail
   
-  def send_mail
-    OrderMailer.completed_order(id).deliver
-  end
+  # def send_mail
+  #   OrderMailer.completed_order(id).deliver
+  # end
 end
