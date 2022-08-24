@@ -74,6 +74,7 @@ Rails.application.routes.draw do
           end
         end
         resources :styles, only: %i[index]
+        resources :colours, only: %i[index]
         resources :insights, only: %i[create]
         resources :packages do
           collection do
