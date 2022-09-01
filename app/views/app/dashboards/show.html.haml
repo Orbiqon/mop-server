@@ -1,0 +1,52 @@
+.header
+  .container-fluid
+    .header-body
+      .row.align-items-end
+        .col
+          %h6.header-pretitle
+            Overview
+          %h1.header-title
+            Dashboard
+        .col-auto
+
+.container-fluid
+  .row
+    .col-sm-3.col-md-3
+      .card.dashboard-style
+        .card-body
+          .row.align-items-center
+            .col
+              %h6.card-title.text-uppercase.text-muted.mb-2
+                Styles
+              %span.h2.mb-0
+                = Style.count             
+    
+    .col-sm-3.col-md-3
+      .card.dashboard-style
+        .card-body
+          .row.align-items-center
+            .col
+              %h6.card-title.text-uppercase.text-muted.mb-2
+                Colours
+              %span.h2.mb-0
+                = Colour.count        
+    
+    .col-sm-3.col-md-3
+      .card.dashboard-style
+        .card-body
+          .row.align-items-center
+            .col
+              %h6.card-title.text-uppercase.text-muted.mb-2
+                Exhibition Styles
+              %span.h2.mb-0
+                = ExhibitionStyle.count
+    
+    .col-sm-3.col-md-3
+      .card.dashboard-style
+        .card-body
+          .row.align-items-center
+            .col
+              %h6.card-title.text-uppercase.text-muted.mb-2
+                Tax Rates
+              %span.h2.mb-0
+                = TaxRate.count            

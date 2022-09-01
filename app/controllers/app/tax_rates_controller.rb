@@ -1,7 +1,8 @@
 module App
   class TaxRatesController < ApplicationController
     def index
-      @tax_rates = TaxRate.all
+      @q = TaxRate.ransack(params[:q])
+      @tax_rates = @q.result.page(params[:page]).per(10)
     end
     
     def new

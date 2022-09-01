@@ -6,7 +6,7 @@ module App
 
     def index
       @q = ExhibitionStyle.ransack(params[:q])
-      @exhibition_styles = @q.result(distinct: true)
+      @exhibition_styles = @q.result(distinct: true).page(params[:page]).per(10)
     end
 
     def new
