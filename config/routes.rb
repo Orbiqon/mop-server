@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     resources :colours
     resources :exhibition_styles
     resources :tax_rates
+    resources :faqs
   end
 
   # API Routes
@@ -81,6 +82,7 @@ Rails.application.routes.draw do
             get :trial
           end
         end
+        resources :faqs
       end
 
       resource :profile, only: %i[show update]
