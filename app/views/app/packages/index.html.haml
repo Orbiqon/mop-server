@@ -1,0 +1,36 @@
+.container-fluid
+  .row.justify-content-center.mt-5
+    - @packages.each do |package|
+      .col-4
+        / Card
+        .card
+          .card-body
+            / Title
+            %h6.text-uppercase.text-center.text-muted.my-4
+              = package.name
+            / Price
+            .row.g-0.align-items-center.justify-content-center
+              .col-auto
+                .h2.mb-0 $
+              .col-auto
+                .display-2.mb-0= package.price
+            / / .row
+            / Period
+            .h6.text-uppercase.text-center.text-muted.mb-5
+              \/
+              = package.duration_type
+            
+            %p=package.description  
+            / Features
+            .mb-3
+              %ul.list-group.list-group-flush
+                %li.list-group-item.d-flex.align-items-center.justify-content-between.px-0
+                  %small Enable
+                  %small= package.enable
+                %li.list-group-item.d-flex.align-items-center.justify-content-between.px-0
+                  %small Duration Span
+                  %small= "#{package.duration_span} #{get_duration_span(package.duration_type)}"
+            / Button
+            = link_to 'Edit', edit_package_path(package), class: "btn w-100 btn-light"
+            
+  

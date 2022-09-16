@@ -18,6 +18,8 @@ application.load(definitionsFromContext(context));
 require("jquery");
 require("bootstrap");
 require("datatables.net-bs4");
+require("trix");
+require("@rails/actiontext");
 
 import $ from "jquery";
 global.$ = jQuery;
@@ -34,3 +36,6 @@ $(document).on("turbolinks:load", function () {
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
+
+require("trix");
+require("@rails/actiontext");

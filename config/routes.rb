@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     resources :exhibition_styles
     resources :tax_rates
     resources :faqs
+    resources :packages
   end
 
   # API Routes

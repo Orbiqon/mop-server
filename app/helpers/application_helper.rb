@@ -11,4 +11,17 @@ module ApplicationHelper
 
     Rails.env == 'development' ? polymorphic_url(data) : data.service_url
   end
+  
+  def get_duration_span type
+    case type
+    when 'daily' 
+      "Days"
+    when 'monthly'
+      "Month"
+    when "yearly"
+      "year"
+    else
+      ""
+    end    
+  end
 end

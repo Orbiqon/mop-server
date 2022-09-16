@@ -12,7 +12,7 @@ module Api
 
         current_user.subscriptions.create(subscription_params(package, result.success[:charge].id))
 
-        json_response({ message: 'Sucessfully subscribed' })
+        json_response({ message: 'Sucessfully subscribed', user: current_user })
       end
 
       private
