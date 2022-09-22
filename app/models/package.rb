@@ -9,8 +9,6 @@ class Package < ApplicationRecord
   scope :enable, -> { where(enable: true) }
   scope :on_trial, -> { where(trial: true) }
   
-  has_rich_text :description
-  
   def calculate_end_date
     case duration_type
     when 'daily'
