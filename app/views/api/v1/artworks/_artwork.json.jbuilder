@@ -8,6 +8,7 @@ json.edition_quantity artwork.edition_quantity
 json.sellable artwork.sellable
 json.sell_via artwork.sell_via
 json.exhibitionable artwork.exhibitionable
+json.notes artwork.notes
 
 json.styles artwork.styles do |style|
   json.id style.id
