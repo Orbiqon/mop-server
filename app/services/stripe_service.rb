@@ -13,7 +13,7 @@ class StripeService
   def initialize(user, package = nil)
     @package = package
     @user = user
-    Stripe.api_key = 'pk_live_ZMJmXZiucoxOzPR7FYEy9JCB'
+    Stripe.api_key = 'sk_test_zmw86KpJCvgiI0f8Q0s8JsVf'
   end
 
   def process_payment(amount)
