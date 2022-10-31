@@ -11,44 +11,52 @@
 #   require file
 # end
 
-papers = [
-  {name: "Pearl"},
-  {name: "Matte"}
+# papers = [
+#   {name: "Pearl"},
+#   {name: "Matte"}
+# ]
+
+# Paper.bulk_insert(values: papers) if Paper.count.zero?
+
+# sizes = [
+#   {name: "10x8"},
+#   {name: "16x12"},
+#   {name: "20x16"},
+#   {name: "24x20"},
+#   {name: "30x30"},
+#   {name: "40x30"}
+# ]
+
+# Size.bulk_insert(values: sizes) if Size.count.zero?
+
+# frames = [
+#   {name: "Black"}, 
+#   {name: "White"},
+#   {name: "Natural Wood"}
+# ]
+
+# Frame.bulk_insert(values: frames) if Frame.count.zero?
+
+# mouldings = [
+#   {name: '1½" Gallery'},
+#   {name: '¾" Gallery Fine'},
+#   {name: '1½" Gallery Grand'}
+# ]
+
+# Moulding.bulk_insert(values: mouldings) if Moulding.count.zero?
+
+# borders = [
+#   {name: "1"},
+#   {name: "2"},
+#   {name: "3"}
+# ]
+
+# Border.bulk_insert(values: borders) if Border.count.zero?
+
+currencies = [
+  {name: "Dollar"},
+  {name: "Pound"},
+  {name: "Euro"}
 ]
 
-Paper.bulk_insert(values: papers) if Paper.count.zero?
-
-sizes = [
-  {name: "10x8"},
-  {name: "16x12"},
-  {name: "20x16"},
-  {name: "24x20"},
-  {name: "30x30"},
-  {name: "40x30"}
-]
-
-Size.bulk_insert(values: sizes) if Size.count.zero?
-
-frames = [
-  {name: "Black"}, 
-  {name: "White"},
-  {name: "Natural Wood"}
-]
-
-Frame.bulk_insert(values: frames) if Frame.count.zero?
-
-mouldings = [
-  {name: '1½" Gallery'},
-  {name: '¾" Gallery Fine'},
-  {name: '1½" Gallery Grand'}
-]
-
-Moulding.bulk_insert(values: mouldings) if Moulding.count.zero?
-
-borders = [
-  {name: "1"},
-  {name: "2"},
-  {name: "3"}
-]
-
-Border.bulk_insert(values: borders) if Border.count.zero?
+StoreCurrency.bulk_insert(values: currencies) if StoreCurrency.count.zero?

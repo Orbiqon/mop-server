@@ -3,6 +3,11 @@
 require('sidekiq/web')
 
 Rails.application.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      get 'store_currencies/index'
+    end
+  end
   default_url_options host: ENV['ASSET_PATH']
 
   # Sidekiq Routes
@@ -101,13 +106,14 @@ Rails.application.routes.draw do
       end
       resources :subscriptions
       resources :orders
-      resource :artist_setting, only: %i[show update]
+      resources :artist_settings
       resources :tax_rates
       resources :price_sheets do 
         collection do
           get :get_pricing_data
         end
       end
+      resources :store_currencies, only: %i[index]
     end
   end
   # root to: 'home#index'

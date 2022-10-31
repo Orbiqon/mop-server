@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_07_093536) do
+ActiveRecord::Schema.define(version: 2022_10_31_095038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,12 +68,16 @@ ActiveRecord::Schema.define(version: 2022_09_07_093536) do
   create_table "artist_settings", force: :cascade do |t|
     t.bigint "user_id"
     t.string "payment_method"
-    t.string "store_currency"
     t.string "order_delay"
     t.text "terms_of_service"
     t.text "digital_image_licence"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "store_currency_id"
+    t.text "self_fullfill_msg"
+    t.string "star_review"
+    t.text "feedback"
+    t.index ["store_currency_id"], name: "index_artist_settings_on_store_currency_id"
     t.index ["user_id"], name: "index_artist_settings_on_user_id"
   end
 
@@ -379,6 +383,12 @@ ActiveRecord::Schema.define(version: 2022_09_07_093536) do
   end
 
   create_table "sizes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "store_currencies", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
