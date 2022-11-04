@@ -20,6 +20,13 @@ Doorkeeper.configure do
       user
     end
   end
+  
+  resource_owner_from_assertion do
+    case params[:provider]
+    when 'facebook'
+      Authenticate::Facebook.new(params[:assertion]).customer!
+    end
+  end
 
   access_token_expires_in 2.days
 
