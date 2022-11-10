@@ -3,7 +3,7 @@ json.exhibition_detail do
   json.artist_name @exhibition&.gallery&.user&.full_name
   json.room_name @exhibition&.room_name
   json.image url(@exhibition&.image)
-  json.style @exhibition&.exhibition_style&.name
+  json.style 'dark'
   
 end
 
